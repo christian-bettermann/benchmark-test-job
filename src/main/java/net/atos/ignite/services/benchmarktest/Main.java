@@ -143,9 +143,9 @@ public class Main {
 			shippingPriorityQuery = "SELECT l_orderkey, SUM(l_extendedprice * ( 1 - l_discount )) AS revenue, o_orderdate, o_shippriority FROM   \"CustomerCache\".customer, \"OrdersCache\".orders, \"LineitemCache\".lineitem WHERE  c_mktsegment = ? AND c_custkey = o_custkey AND l_orderkey = o_orderkey AND o_orderdate < ? AND l_shipdate > ? GROUP BY l_orderkey, o_orderdate, o_shippriority ORDER BY revenue DESC, o_orderdate LIMIT 10;";
 			suppliersWhoKeptOrdersWaitingQuery = "SELECT s_name, Count(*) AS numwait FROM \"SupplierCache\".supplier, \"LineitemCache\".lineitem l1, \"OrdersCache\".orders, \"NationCache\".nation WHERE s_suppkey = l1.l_suppkey AND o_orderkey = l1.l_orderkey AND o_orderstatus = ? AND l1.l_receiptdate > l1.l_commitdate AND EXISTS (SELECT * FROM \"LineitemCache\".lineitem l2 WHERE  l2.l_orderkey = l1.l_orderkey AND l2.l_suppkey <> l1.l_suppkey) AND NOT EXISTS (SELECT * FROM \"LineitemCache\".lineitem l3 WHERE  l3.l_orderkey = l1.l_orderkey AND l3.l_suppkey <> l1.l_suppkey AND l3.l_receiptdate > l3.l_commitdate) AND s_nationkey = n_nationkey AND n_name = ? GROUP  BY s_name ORDER  BY numwait DESC, s_name LIMIT 100;";
 			break;
-		default:
-            pricingSummaryReportQuery = "";
-            minimumCostSupplierQuery = "";
+        	default:
+            		pricingSummaryReportQuery = "";
+            		minimumCostSupplierQuery = "";
 			shippingPriorityQuery = "";
 			suppliersWhoKeptOrdersWaitingQuery = "";
 			break;
@@ -165,11 +165,10 @@ public class Main {
 	        	pst.setString(1, date);
 	        	pst.setInt(2, dayInterval);    
 	        	break;
-			case "IGNITE-IN-MEMORY-DB":
+            case "IGNITE-IN-MEMORY-DB":
+            case "IGNITE-IN-MEMORY-CACHE":
 				pst.setInt(1, dayInterval);
-				pst.setDate(2, java.sql.Date.valueOf(date));
-				break;
-			case "IGNITE-IN-MEMORY-CACHE":
+				pst.setDate(2, java.sql.Date.valueOf(date));			
 				break;
 			default:
 				break;
@@ -248,12 +247,11 @@ public class Main {
 	            pst.setString(2, date);
 	            pst.setString(3, date);  
 	        	break;
-			case "IGNITE-IN-MEMORY-DB":
+            case "IGNITE-IN-MEMORY-DB":
+            case "IGNITE-IN-MEMORY-CACHE":
 				pst.setString(1, marktSegment);
 	            pst.setDate(2, java.sql.Date.valueOf(date));
 	            pst.setDate(3, java.sql.Date.valueOf(date));
-				break;
-			case "IGNITE-IN-MEMORY-CACHE":
 				break;
 			default:
 				break;
