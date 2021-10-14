@@ -19,91 +19,87 @@ public class Main {
 	static String shippingPriorityQuery;
 	static String suppliersWhoKeptOrdersWaitingQuery;
 	
-	
-	
-	
-	
 	public static void main(String[] args) {
 		init();
 		// ------- Insert the queries here -----------
 		try {
 			switch(SETUP_TYPE) {
-				case "POSTGRES":
-					pricingSummaryReportQuery(0, "01 12 1995");
-					pricingSummaryReportQuery(-30, "01 12 1996");
-					pricingSummaryReportQuery(-60, "01 12 1997");
-					pricingSummaryReportQuery(-90, "01 12 1998");
-					pricingSummaryReportQuery(-120, "01 12 1999");
-				
-					minimumCostSupplierQuery(15, "%STEEL%", "EUROPE");
-					minimumCostSupplierQuery(12, "%COPPER%", "EUROPE");
-					minimumCostSupplierQuery(29, "%POLISHED TIN%", "EUROPE");
-					minimumCostSupplierQuery(15, "%STEEL%", "AMERICA");
-					minimumCostSupplierQuery(12, "%COPPER%", "AMERICA");
-					minimumCostSupplierQuery(29, "%POLISHED TIN%", "AMERICA");
-					                  
-					shippingPriorityQuery("BUILDING", "01 06 1998");
-					shippingPriorityQuery("AUTOMOBILE", "01 06 1997");
-					shippingPriorityQuery("FURNITURE", "01 06 1996");
-					shippingPriorityQuery("HOUSEHOLD", "01 06 1995");
-					shippingPriorityQuery("BUILDING", "01 12 1997");
-					shippingPriorityQuery("AUTOMOBILE", "01 12 1996");
-					shippingPriorityQuery("FURNITURE", "01 12 1995");
-					shippingPriorityQuery("HOUSEHOLD", "01 12 1994");
-					
-		  			suppliersWhoKeptOrdersWaitingQuery('F', "GERMANY"); //all lineitems shipped
-		  			suppliersWhoKeptOrdersWaitingQuery('O', "GERMANY"); //no lineitems shipped
-		  			suppliersWhoKeptOrdersWaitingQuery('P', "GERMANY"); //some lineitems shipped
-		  			suppliersWhoKeptOrdersWaitingQuery('F', "CANADA");
-		  			suppliersWhoKeptOrdersWaitingQuery('O', "CANADA");
-		  			suppliersWhoKeptOrdersWaitingQuery('P', "CANADA");
-		  			suppliersWhoKeptOrdersWaitingQuery('F', "UNITED STATES");
-		  			suppliersWhoKeptOrdersWaitingQuery('O', "UNITED STATES");
-		  			suppliersWhoKeptOrdersWaitingQuery('P', "UNITED STATES");
-		  			suppliersWhoKeptOrdersWaitingQuery('F', "FRANCE");
-		  			suppliersWhoKeptOrdersWaitingQuery('O', "FRANCE");
-		  			suppliersWhoKeptOrdersWaitingQuery('P', "FRANCE");
-		  			break;
-                case "IGNITE-IN-MEMORY-DB":
-                case "IGNITE-IN-MEMORY-CACHE":
-					pricingSummaryReportQuery(0, "1995-12-01");
-					pricingSummaryReportQuery(-30, "1996-12-01");
-					pricingSummaryReportQuery(-60, "1997-12-01");
-					pricingSummaryReportQuery(-90, "1998-12-01");
-					pricingSummaryReportQuery(-120, "1999-12-01");
-				
-					minimumCostSupplierQuery(15, "%STEEL%", "EUROPE");
-					minimumCostSupplierQuery(12, "%COPPER%", "EUROPE");
-					minimumCostSupplierQuery(29, "%POLISHED TIN%", "EUROPE");
-					minimumCostSupplierQuery(15, "%STEEL%", "AMERICA");
-					minimumCostSupplierQuery(12, "%COPPER%", "AMERICA");
-					minimumCostSupplierQuery(29, "%POLISHED TIN%", "AMERICA");
-					                  
-					shippingPriorityQuery("BUILDING", "1998-06-01");
-					shippingPriorityQuery("AUTOMOBILE", "1997-06-01");
-					shippingPriorityQuery("FURNITURE", "1996-06-01");
-					shippingPriorityQuery("HOUSEHOLD", "1995-06-01");
-					shippingPriorityQuery("BUILDING", "1997-12-01");
-					shippingPriorityQuery("AUTOMOBILE", "1996-12-01");
-					shippingPriorityQuery("FURNITURE", "1995-12-01");
-					shippingPriorityQuery("HOUSEHOLD", "1994-12-01");
-					
-		  			suppliersWhoKeptOrdersWaitingQuery('F', "GERMANY"); //all lineitems shipped
-		  			suppliersWhoKeptOrdersWaitingQuery('O', "GERMANY"); //no lineitems shipped
-		  			suppliersWhoKeptOrdersWaitingQuery('P', "GERMANY"); //some lineitems shipped
-		  			suppliersWhoKeptOrdersWaitingQuery('F', "CANADA");
-		  			suppliersWhoKeptOrdersWaitingQuery('O', "CANADA");
-		  			suppliersWhoKeptOrdersWaitingQuery('P', "CANADA");
-		  			suppliersWhoKeptOrdersWaitingQuery('F', "UNITED STATES");
-		  			suppliersWhoKeptOrdersWaitingQuery('O', "UNITED STATES");
-		  			suppliersWhoKeptOrdersWaitingQuery('P', "UNITED STATES");
-		  			suppliersWhoKeptOrdersWaitingQuery('F', "FRANCE");
-		  			suppliersWhoKeptOrdersWaitingQuery('O', "FRANCE");
-		  			suppliersWhoKeptOrdersWaitingQuery('P', "FRANCE");
-					break;
-				default:
-					System.out.println("Invalid SETUP declared!");
-					break;
+			case "POSTGRES":
+				pricingSummaryReportQuery(0, "01 12 1995");
+				pricingSummaryReportQuery(-30, "01 12 1996");
+				pricingSummaryReportQuery(-60, "01 12 1997");
+				pricingSummaryReportQuery(-90, "01 12 1998");
+				pricingSummaryReportQuery(-120, "01 12 1999");
+
+				minimumCostSupplierQuery(15, "%STEEL%", "EUROPE");
+				minimumCostSupplierQuery(12, "%COPPER%", "EUROPE");
+				minimumCostSupplierQuery(29, "%POLISHED TIN%", "EUROPE");
+				minimumCostSupplierQuery(15, "%STEEL%", "AMERICA");
+				minimumCostSupplierQuery(12, "%COPPER%", "AMERICA");
+				minimumCostSupplierQuery(29, "%POLISHED TIN%", "AMERICA");
+
+				shippingPriorityQuery("BUILDING", "01 06 1998");
+				shippingPriorityQuery("AUTOMOBILE", "01 06 1997");
+				shippingPriorityQuery("FURNITURE", "01 06 1996");
+				shippingPriorityQuery("HOUSEHOLD", "01 06 1995");
+				shippingPriorityQuery("BUILDING", "01 12 1997");
+				shippingPriorityQuery("AUTOMOBILE", "01 12 1996");
+				shippingPriorityQuery("FURNITURE", "01 12 1995");
+				shippingPriorityQuery("HOUSEHOLD", "01 12 1994");
+
+				suppliersWhoKeptOrdersWaitingQuery('F', "GERMANY"); //all lineitems shipped
+				suppliersWhoKeptOrdersWaitingQuery('O', "GERMANY"); //no lineitems shipped
+				suppliersWhoKeptOrdersWaitingQuery('P', "GERMANY"); //some lineitems shipped
+				suppliersWhoKeptOrdersWaitingQuery('F', "CANADA");
+				suppliersWhoKeptOrdersWaitingQuery('O', "CANADA");
+				suppliersWhoKeptOrdersWaitingQuery('P', "CANADA");
+				suppliersWhoKeptOrdersWaitingQuery('F', "UNITED STATES");
+				suppliersWhoKeptOrdersWaitingQuery('O', "UNITED STATES");
+				suppliersWhoKeptOrdersWaitingQuery('P', "UNITED STATES");
+				suppliersWhoKeptOrdersWaitingQuery('F', "FRANCE");
+				suppliersWhoKeptOrdersWaitingQuery('O', "FRANCE");
+				suppliersWhoKeptOrdersWaitingQuery('P', "FRANCE");
+				break;
+                	case "IGNITE-IN-MEMORY-DB":
+                	case "IGNITE-IN-MEMORY-CACHE":
+				pricingSummaryReportQuery(0, "1995-12-01");
+				pricingSummaryReportQuery(-30, "1996-12-01");
+				pricingSummaryReportQuery(-60, "1997-12-01");
+				pricingSummaryReportQuery(-90, "1998-12-01");
+				pricingSummaryReportQuery(-120, "1999-12-01");
+
+				minimumCostSupplierQuery(15, "%STEEL%", "EUROPE");
+				minimumCostSupplierQuery(12, "%COPPER%", "EUROPE");
+				minimumCostSupplierQuery(29, "%POLISHED TIN%", "EUROPE");
+				minimumCostSupplierQuery(15, "%STEEL%", "AMERICA");
+				minimumCostSupplierQuery(12, "%COPPER%", "AMERICA");
+				minimumCostSupplierQuery(29, "%POLISHED TIN%", "AMERICA");
+
+				shippingPriorityQuery("BUILDING", "1998-06-01");
+				shippingPriorityQuery("AUTOMOBILE", "1997-06-01");
+				shippingPriorityQuery("FURNITURE", "1996-06-01");
+				shippingPriorityQuery("HOUSEHOLD", "1995-06-01");
+				shippingPriorityQuery("BUILDING", "1997-12-01");
+				shippingPriorityQuery("AUTOMOBILE", "1996-12-01");
+				shippingPriorityQuery("FURNITURE", "1995-12-01");
+				shippingPriorityQuery("HOUSEHOLD", "1994-12-01");
+
+				suppliersWhoKeptOrdersWaitingQuery('F', "GERMANY"); //all lineitems shipped
+				suppliersWhoKeptOrdersWaitingQuery('O', "GERMANY"); //no lineitems shipped
+				suppliersWhoKeptOrdersWaitingQuery('P', "GERMANY"); //some lineitems shipped
+				suppliersWhoKeptOrdersWaitingQuery('F', "CANADA");
+				suppliersWhoKeptOrdersWaitingQuery('O', "CANADA");
+				suppliersWhoKeptOrdersWaitingQuery('P', "CANADA");
+				suppliersWhoKeptOrdersWaitingQuery('F', "UNITED STATES");
+				suppliersWhoKeptOrdersWaitingQuery('O', "UNITED STATES");
+				suppliersWhoKeptOrdersWaitingQuery('P', "UNITED STATES");
+				suppliersWhoKeptOrdersWaitingQuery('F', "FRANCE");
+				suppliersWhoKeptOrdersWaitingQuery('O', "FRANCE");
+				suppliersWhoKeptOrdersWaitingQuery('P', "FRANCE");
+				break;
+			default:
+				System.out.println("Invalid SETUP declared!");
+				break;
 			}
 		// -------------------------------------------
 		} catch (Exception e) {
@@ -153,29 +149,28 @@ public class Main {
 	}
 
 	public static void pricingSummaryReportQuery(int dayInterval, String date) {
-        String query = pricingSummaryReportQuery;
-        int ctr = 0;
+        	String query = pricingSummaryReportQuery;
+        	int ctr = 0;
 		long finishQuery = 0;
 		long finishOutput = 0;
 		
-        try (Connection con = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-             PreparedStatement pst = con.prepareStatement(query)) {
-        	switch(SETUP_TYPE) {
+       		try (Connection con = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+             		PreparedStatement pst = con.prepareStatement(query)) {
+			switch(SETUP_TYPE) {
 			case "POSTGRES":
-	        	pst.setString(1, date);
-	        	pst.setInt(2, dayInterval);    
-	        	break;
-            case "IGNITE-IN-MEMORY-DB":
-            case "IGNITE-IN-MEMORY-CACHE":
+				pst.setString(1, date);
+				pst.setInt(2, dayInterval);    
+				break;
+			case "IGNITE-IN-MEMORY-DB":
+			case "IGNITE-IN-MEMORY-CACHE":
 				pst.setInt(1, dayInterval);
 				pst.setDate(2, java.sql.Date.valueOf(date));			
 				break;
 			default:
 				break;
-        	}
-            long start = System.currentTimeMillis();
-            ResultSet rs = pst.executeQuery();
-
+			}
+			long start = System.currentTimeMillis();
+			ResultSet rs = pst.executeQuery();
 			if (rs.next()) {
 				finishQuery = System.currentTimeMillis();
 				ctr++;
@@ -193,9 +188,9 @@ public class Main {
 				System.out.println("Query failed! Query: pricingSummaryReportQuery with params date: " + date + ", dayInterval: " + dayInterval + "; Timestamp taken on start: "+ start +";");
 			}
 			con.close();
-        } catch (Exception e) {
-        	e.printStackTrace();
-        }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static void minimumCostSupplierQuery(int partSize, String typeLike, String regionName) {
@@ -204,13 +199,13 @@ public class Main {
 		long finishQuery = 0;
 		long finishOutput = 0;
 		try (Connection con = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-             PreparedStatement pst = con.prepareStatement(query)) {
+             		PreparedStatement pst = con.prepareStatement(query)) {
 			pst.setInt(1, partSize);
-            pst.setString(2, typeLike);
-            pst.setString(3, regionName);
-            pst.setString(4, regionName);   
-            long start = System.currentTimeMillis();
-            ResultSet rs = pst.executeQuery();
+			pst.setString(2, typeLike);
+		    	pst.setString(3, regionName);
+		    	pst.setString(4, regionName);   
+		   	long start = System.currentTimeMillis();
+		    	ResultSet rs = pst.executeQuery();
 
 			if (rs.next()) {
 				finishQuery = System.currentTimeMillis();
@@ -229,9 +224,9 @@ public class Main {
 				System.out.println("Query failed! Query: minimumCostSupplierQuery with params partSize: "+ partSize + "; typeLike: " + typeLike + "; regionName " + regionName + "; Timestamp taken on start: "+ start +";");
 			}
 			con.close();
-        } catch (Exception e) {
-        	e.printStackTrace();
-        }	
+        	} catch (Exception e) {
+        		e.printStackTrace();
+        	}	
 	}
 
 	public static void shippingPriorityQuery(String marktSegment, String date) {
@@ -240,24 +235,24 @@ public class Main {
 		long finishQuery = 0;
 		long finishOutput = 0;
 		try (Connection con = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-             PreparedStatement pst = con.prepareStatement(query)) {
+             		PreparedStatement pst = con.prepareStatement(query)) {
 			switch(SETUP_TYPE) {
 			case "POSTGRES":
 				pst.setString(1, marktSegment);
-	            pst.setString(2, date);
-	            pst.setString(3, date);  
-	        	break;
-            case "IGNITE-IN-MEMORY-DB":
-            case "IGNITE-IN-MEMORY-CACHE":
+	            		pst.setString(2, date);
+	            		pst.setString(3, date);  
+	        		break;
+		    	case "IGNITE-IN-MEMORY-DB":
+		    	case "IGNITE-IN-MEMORY-CACHE":
 				pst.setString(1, marktSegment);
-	            pst.setDate(2, java.sql.Date.valueOf(date));
-	            pst.setDate(3, java.sql.Date.valueOf(date));
+	            		pst.setDate(2, java.sql.Date.valueOf(date));
+	            		pst.setDate(3, java.sql.Date.valueOf(date));
 				break;
 			default:
 				break;
-        	}
-            long start = System.currentTimeMillis();
-            ResultSet rs = pst.executeQuery();
+        		}
+            		long start = System.currentTimeMillis();
+            		ResultSet rs = pst.executeQuery();
 
 			if (rs.next()) {
 				finishQuery = System.currentTimeMillis();
@@ -276,9 +271,9 @@ public class Main {
 				System.out.println("Query failed! Query: shippingPriorityQuery with params marktSegment: "+ marktSegment + "; date: " + date + "; Timestamp taken on start: "+ start +";");
 			}
 			con.close();
-        } catch (Exception e) {
-        	e.printStackTrace();
-        }		
+        	} catch (Exception e) {
+        		e.printStackTrace();
+        	}		
 	}
 	
 	public static void suppliersWhoKeptOrdersWaitingQuery(char orderstatus, String nation) {
@@ -287,11 +282,11 @@ public class Main {
 		long finishQuery = 0;
 		long finishOutput = 0;
 		try (Connection con = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-             PreparedStatement pst = con.prepareStatement(query)) {
-            pst.setString(1, String.valueOf(orderstatus));
-            pst.setString(2, nation);
-            long start = System.currentTimeMillis();
-            ResultSet rs = pst.executeQuery();
+             		PreparedStatement pst = con.prepareStatement(query)) {
+            		pst.setString(1, String.valueOf(orderstatus));
+            		pst.setString(2, nation);
+            		long start = System.currentTimeMillis();
+            		ResultSet rs = pst.executeQuery();
 
 			if (rs.next()) {
 				finishQuery = System.currentTimeMillis();
@@ -310,34 +305,32 @@ public class Main {
 				System.out.println("Query failed! Query: suppliersWhoKeptOrdersWaitingQuery with params orderstatus: "+ orderstatus + "; nation: " + nation + "; Timestamp taken on start: "+ start +";");
 			}
 			con.close();
-        } catch (Exception e) {
-        	e.printStackTrace();
-        }	
+        	} catch (Exception e) {
+        		e.printStackTrace();
+        	}	
 	}
 	
 	public static void writeToResultsDatabase(long timestamp, String query_name, String parameters, long response_millis, long output_millis, long row_count, int data_scalefactor, String setup_type, String setup_size) {
-        String query = "INSERT INTO results(timestamp, query_name, parameters, response_millis, output_millis, row_count, data_scalefactor, setup_type, setup_size) VALUES(?, ?, ?, ?, ?, ?, ?, ?,?);";
-        System.out.println(timestamp +", "+ query_name+", "+parameters+", "+response_millis+", "+output_millis+", "+row_count+", "+data_scalefactor+", "+setup_type+", "+setup_size);
-        try (Connection con = DriverManager.getConnection(RESULTS_DB_URL, RESULTS_USER, RESULTS_PASSWORD);
-                PreparedStatement pst = con.prepareStatement(query)) {
-        	   con.setAutoCommit(true);
-       	   
-        	   
-        	   pst.setLong(1, timestamp);
-               pst.setString(2, query_name);
-               pst.setString(3, parameters);
-               pst.setLong(4, response_millis);
-               pst.setLong(5, output_millis);
-               pst.setLong(6, row_count);
-               pst.setInt(7, data_scalefactor);
-               pst.setString(8, setup_type);
-               pst.setString(9, setup_size);
-               int response = pst.executeUpdate();
-               
-               System.out.println("Added " + response + " row to the results database.");
-               con.close();
-        } catch (Exception e) {
-        	e.printStackTrace();
-        }
+		String query = "INSERT INTO results(timestamp, query_name, parameters, response_millis, output_millis, row_count, data_scalefactor, setup_type, setup_size) VALUES(?, ?, ?, ?, ?, ?, ?, ?,?);";
+		System.out.println(timestamp +", "+ query_name+", "+parameters+", "+response_millis+", "+output_millis+", "+row_count+", "+data_scalefactor+", "+setup_type+", "+setup_size);
+		try (Connection con = DriverManager.getConnection(RESULTS_DB_URL, RESULTS_USER, RESULTS_PASSWORD);
+			PreparedStatement pst = con.prepareStatement(query)) {
+			con.setAutoCommit(true);
+			pst.setLong(1, timestamp);
+			pst.setString(2, query_name);
+			pst.setString(3, parameters);
+			pst.setLong(4, response_millis);
+			pst.setLong(5, output_millis);
+			pst.setLong(6, row_count);
+			pst.setInt(7, data_scalefactor);
+			pst.setString(8, setup_type);
+			pst.setString(9, setup_size);
+			int response = pst.executeUpdate();
+
+			System.out.println("Added " + response + " row to the results database.");
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
